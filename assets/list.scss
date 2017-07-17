@@ -1,0 +1,41 @@
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+div.list_section{
+  .stack{
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    li{
+      //    margin-bottom: 1px;
+      background-color: cornflowerblue;
+      padding: 5px 10px 5px 10px;
+      width: 100%;
+      &:first-of-type{
+        padding: 10px 10px 5px 10px;
+
+      }
+      &:last-of-type{
+        padding: 5px 10px 10px 10px;
+
+      }
+
+      .schedule-div{
+        width: inherit;
+        height:50px;
+        background: white;
+
+      }
+
+    }
+    p {
+      margin: 0px;
+    }
+  }
+}

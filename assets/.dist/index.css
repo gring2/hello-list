@@ -1,0 +1,8 @@
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  main div {
+    width: 30%; }
+
+/*# sourceMappingURL=index.css.map */

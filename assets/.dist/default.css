@@ -1,0 +1,43 @@
+body, main {
+  margin: 0 0 0 0; }
+  body header, main header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 50px; }
+    body header .header-item, main header .header-item {
+      flex: 1 1 0;
+      border-right: 0.4px solid #dbdfe1;
+      border-top: 0.4px solid #dbdfe1;
+      border-bottom: 0.4px solid #dbdfe1; }
+      body header .header-item.home, main header .header-item.home {
+        flex: 1 1 0;
+        border-left: 0.4px solid #dbdfe1; }
+      body header .header-item.search div, main header .header-item.search div {
+        height: 100%; }
+        body header .header-item.search div input, main header .header-item.search div input {
+          display: block;
+          border: none;
+          padding: 0;
+          width: 100%;
+          height: 100%; }
+      body header .header-item.pannel, main header .header-item.pannel {
+        flex: 2 2 0; }
+        body header .header-item.pannel ul, main header .header-item.pannel ul {
+          width: 100%;
+          justify-content: space-between;
+          list-style: none;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center; }
+          body header .header-item.pannel ul li, main header .header-item.pannel ul li {
+            width: 100%; }
+            body header .header-item.pannel ul li a, main header .header-item.pannel ul li a {
+              letter-spacing: .5px;
+              width: 100%;
+              align-items: center; }
+  body main, main main {
+    width: inherit;
+    padding: 15px; }
+
+/*# sourceMappingURL=default.css.map */
