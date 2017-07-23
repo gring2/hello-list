@@ -30,6 +30,17 @@ div.list_section{
         width: inherit;
         height:50px;
         background: white;
+        input {
+          height: 100%;
+          border: 0px;
+          padding: 0px;
+          width: 100%;
+          background: #dbdfe1;
+        }
+        //block pointer events
+        p {
+          pointer-events: none;
+        }
 
       }
 

@@ -4,3 +4,4 @@ node_modules/*
 .nuxt/*
 .idea/vcs.xml
 .idea/*
+.idea/

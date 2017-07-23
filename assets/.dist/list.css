@@ -23,6 +23,14 @@ div.list_section .stack {
       width: inherit;
       height: 50px;
       background: white; }
+      div.list_section .stack li .schedule-div input {
+        height: 100%;
+        border: 0px;
+        padding: 0px;
+        width: 100%;
+        background: #dbdfe1; }
+      div.list_section .stack li .schedule-div p {
+        pointer-events: none; }
   div.list_section .stack p {
     margin: 0px; }
 

@@ -1,10 +1,17 @@
 <template>
 <div class="list_section">
     <ul class="stack">
-        <li v-for="n , i in test">
-            <div class="schedule-div"  @dragover="over" @drop="drop" @dragstart="drag" v-bind:id="i" draggable="true">
+        <li>
+            <div class="schedule-div">
+                <input style="height: 100%" placeholder="add schedule"  @keyup.enter="addSchedule"/>
+            </div>
+        </li>
+
+        <li v-for="n , i in test"  >
+            <div class="schedule-div"  @dragover="over" @dragleave="leave" @drop="drop" @dragstart="drag" @dragenter="enter" v-bind:id="i"  draggable="true">
                 <p >
-                    {{n}} {{i}}
+
+                    {{n}}
                 </p>
             </div>
         </li>
@@ -31,6 +38,8 @@
 
         data () {
             return {
+                mine:null,
+                entered:null
             }
         },
         computed:{
@@ -45,43 +54,39 @@
                 return this.$store.state.list.dragClone_
             }
         },
-//        computed: mapGetters({
-//            test: 'list/test',
-//            dragSrc_: 'list/dragSrc_',
-//            dragClone_: 'list/dragClone_'
-//        }),
         methods : {
-            drag (ev) {
-                this.$store.commit('list/drag', ev)
-//                ev.dataTransfer.setData("text/plain", ev.target.id);
-//                this.dragSrc_ = ev.target
-//                this.dragClone_ = ev.target.cloneNode(true)//.parentElement
-//
-//                ev.target.innerHTML = "";
-//                ev.target.style.backgroundColor = "#026AA7";
+            addSchedule (ev) {
+                let inputed_value = ev.target.value;
+                let key_value = this.title
+                this.$store.commit('list/input', {key:key_value, inputed:inputed_value})
+                ;
+
             },
+            enter (ev){
+                if(this.mine === null){
+                    this.$store.commit('list/openspace',{key:this.title, event:ev})
+
+                }
+
+            },
+            drag (ev) {
+                this.mine=ev.target
+                this.$store.commit('list/drag', {key:this.title, event:ev})
+            },
+
             over (ev){
                 this.$store.commit('list/over', ev)
 
-//                ev.preventDefault();
-                // dropEffect를 move로 설정.
-//                ev.dataTransfer.dropEffect = "move"
-
             },
+            leave(ev){
+                console.log('leave')
+              this.$store.commit('list/leave', {key:this.title, event:ev})
+            },
+
             drop (ev) {
-//                ev.preventDefault();
-                this.$store.commit('list/drop', ev)
-                console.dir(this.$store.state.list.test)
-                // 대상의 id를 가져와 대상 DOM에 움직인 요소를 추가합니다.
-//                var data = ev.dataTransfer.getData("text");
-//                var tmp = this.dragClone_.innerHTML
-//                this.dragSrc_.innerHTML = ev.target.innerHTML
-//
-//                ev.target.style.backgroundColor = "white";
-//                this.dragSrc_.style.backgroundColor = "white";
-//
-//                ev.target.innerHTML = tmp;
-//                return false;
+
+                this.$store.commit('list/drop', {key:this.title, event:ev})
+
             },
         },
         fetch ({ store }) {
@@ -102,7 +107,7 @@
 
             window.addEventListener('mouseup', function () {
                 vm.$store.commit('list/reset')
-
+                vm.mine=null;
 
             })
         }

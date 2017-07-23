@@ -4,9 +4,9 @@
 </style>
 <template>
     <main>
-        <todo-list title='first' v-bind:origin="[1,12,13,14,15]" ></todo-list>
-        <todo-list title='second' v-bind:origin="[2,22,23,24,25]"></todo-list>
-        <todo-list title='third' v-bind:origin="[3,32,33,34,35]"></todo-list>
+        <todo-list title='first' v-bind:origin="['1','12','13','14','15']" ></todo-list>
+        <todo-list title='second' v-bind:origin="['2','22','23','24','25']"></todo-list>
+        <todo-list title='third' v-bind:origin="['3','32','33','34','35']"></todo-list>
 
     </main>
 </template>
